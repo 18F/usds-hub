@@ -1,0 +1,29 @@
+---
+permalink: /
+---
+<h1>{{ site.title }}</h1>
+<p>{{ site.description }}</p>
+
+<p><strong>WORK IN PROGRESS!!!</strong></p>
+
+<p>This product is still in the idea stage and hasn't even been properly
+designed yet. But <a href="https://github.com/18F/usds-hub/">stay
+tuned</a>!</p>
+
+<section>
+<h2>U.S. Digital Service Teams</h2>
+{% for entry in site.data.hubs %}{% assign hub = entry[1] %}
+{% if site.public %}{% assign link = hub.public %}
+{% else %}{% assign link = hub.internal %}{% endif %}
+<div class="hub-listing">
+  <div class="hub-listing-entry">
+    <div class="hub-listing-cell">
+      <a href="{{ link }}"><img class="hub-thumb" src="{{ site.baseurl }}assets/images/{{ hub.logo }}" alt="{{ hub.team }} logo" title="{{ hub.team }} logo"/></a>
+    </div>
+    <div class="hub-listing-cell">
+      <a href="{{ link }}">{{ hub.team }}</a><br/>{{ hub.description }}
+    </div>
+  </div>
+</div>
+{% endfor %}
+</section>

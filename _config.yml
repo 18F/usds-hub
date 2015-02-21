@@ -1,0 +1,77 @@
+# Build settings
+markdown: redcarpet
+redcarpet:
+  extensions:
+  - with_toc_data
+highlighter: rouge
+
+exclude:
+- README.md
+- LICENSE.md
+- CONTRIBUTING.md
+- deploy
+- pages/README.md
+- pages/private/README.md
+- vendor
+- go
+
+permalink: pretty
+tag_dir: tags
+tag_title_prefix: "#"
+
+sass:
+  sass_dir: assets/_sass
+  style: compressed
+
+assets:
+  js_compressor: uglifier
+  css_compressor: sass
+  sources:
+    - _assets/javascripts
+    - assets/js
+    - assets/css
+
+# use where a full URL is appropriate (e.g. RSS, OG tags)
+url: https://hub.18f.us/usds/
+
+# metadata
+title: United States Digital Service Hub
+description: "A Hub that links together all the U.S. Digital Service teams"
+generated_page_title_format: '%s &mdash; USDS Hub'
+
+# private data
+private_data_path: _data/private
+private_pages_path: pages/private
+
+# Editable link idea from:
+# https://github.com/blacktm/standard-jekyll-template/blob/gh-pages/_config.yml
+defaults:
+  -
+    scope:
+      path: "pages"
+    values:
+      layout: "bare"
+      edit_info:
+        repo: 18F/usds-hub
+        branch: master
+  -
+    scope:
+      path: "pages/private"
+    values:
+      edit_info:
+        repo: 18F/usds-hub-pages-private
+        prefix: pages/private/
+
+editor_url: https://hub.18f.us/edit/#
+
+prose:
+  rooturl: 'pages'
+  media: 'assets'
+  metadata:
+    pages:
+      - name: 'title'
+        field:
+          element: 'text'
+      - name: 'permalink'
+        field:
+          element: 'text'
